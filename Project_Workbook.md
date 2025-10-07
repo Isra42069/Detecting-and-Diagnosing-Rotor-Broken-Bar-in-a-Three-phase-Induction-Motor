@@ -56,11 +56,13 @@
 
 ---
 
-## 5. Issues and Challenges
+## 5. Risk Assessment
 
-| Issue      | Impact      | Resolution                            |
+| Risk       | Impact      | Mitiligation Strategy                 |
 |------------|-------------|---------------------------------------|
 |            |             |                                       |
+
+---
 
 ## 6. Resources
 - Broken Rotor Fault Detection in AC Induction Motors Using Vibration and Electrical Signals:

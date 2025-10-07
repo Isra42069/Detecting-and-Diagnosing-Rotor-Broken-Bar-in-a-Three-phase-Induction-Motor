@@ -73,4 +73,5 @@
 ## 7. Next Steps
 
 - _List what needs to be done next_
-- Example: Refine model based on test results
+- See detailed action plan in [Meetings.md](./Meetings.md)
+  

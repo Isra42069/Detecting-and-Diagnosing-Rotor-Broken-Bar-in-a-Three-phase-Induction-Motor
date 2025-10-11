@@ -118,26 +118,28 @@ ens = fileEnsembleDatastore(location,'.mat');
 
 ens.ReadFcn = @readMemberData;
 ens.WriteToMemberFcn = @writeMemberData;
+
+% Make sure these lists include ONLY names your reader can supply
 ens.DataVariables = [...
-  "Va"; "Vb"; "Vc"; "Ia"; "Ib"; "Ic"; ...
-  "Vib_acpi"; "Vib_carc"; "Vib_acpe"; "Vib_axial"; "Vib_base"; "Trigger"];
+   "Va"; "Vb"; "Vc"; "Ia"; "Ib"; "Ic"; ...
+   "Vib_acpi"; "Vib_carc"; "Vib_acpe"; "Vib_axial"; "Vib_base"; "Trigger"; ...
+   "Fs_vib"; "Fs_elec"; ...
+   "Vib_acpi_env"; "Ia_env_ps"  % derived
+];
 ens.ConditionVariables = ["Health"; "Load"];
-ens.SelectedVariables = ["Ia"; "Vib_acpi"; "Health"; "Load"];
 
-% Add synthetic signals and spectra generated directly in the readMemberData
-% function.
-ens.DataVariables = [ens.DataVariables; "Vib_acpi_env"; "Ia_env_ps"];
-ens.SelectedVariables = [ens.SelectedVariables; "Vib_acpi_env"; "Ia_env_ps"];
+% Only pick what you need to read now
+ens.SelectedVariables = ["Ia"; "Vib_acpi"; "Health"; "Load"; "Vib_acpi_env"; "Ia_env_ps"];
 ens
+T = read(ens);  % 1-row table per member
 
-T = read(ens)
 % Power spectrum of vibration signal, Vib_acpi
 vib = T.Vib_acpi{1};
-pspectrum(vib.Data, Fs_vib);
+pspectrum(vib, Fs_vib);
 annotation("textarrow", [0.45 0.38], [0.65 0.54], "String", "Fault frequency region of interest")
 
 % Envelop of vibration signal
-y = bandpass(vib.Data, [900 1300], Fs_vib);
+y = bandpass(vib, [900 1300], Fs_vib);
 envelope(y)
 axis([0 800 -0.5 0.5])
 

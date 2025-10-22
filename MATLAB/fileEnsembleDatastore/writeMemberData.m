@@ -1,11 +1,10 @@
-function writeMemberData(filename, S)
-% writeMemberData — append variables to a member file.
-% S must be a struct whose fieldnames are the variable names to write.
+function writeMemberData(filename, data)
+ % Write data into the fileEnsembleDatastore. 
+% 
+% Inputs: 
+% filename - a string for the file name to write 
+% data - a data structure to write to the file
 
-    if ~isstruct(S)
-        error("writeMemberData:InputNotStruct", "Second argument must be a struct.");
-    end
-
-    % -append keeps existing variables
-    save(filename, '-append', '-struct', 'S');
-end
+% Save fields as individual variables. 
+save(filename, '-append' , '-struct' , 'data' );
+ end

@@ -22,7 +22,7 @@
 
 | Milestone                    | Target Date | Status   |
 |------------------------------|-------------|----------|
-| Proposal Presentation        | yyyy-mm-dd  | Pending  |
+| Proposal Presentation        | 2025-10-24  | completed  |
 | Literature Review            | yyyy-mm-dd  | Pending  |
 | Data Collection              | yyyy-mm-dd  | Pending  |
 | Model Development            | yyyy-mm-dd  | Pending  |

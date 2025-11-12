@@ -5,9 +5,9 @@ function TT = getSignal(mfile, signname, Fs)
     signname = char(signname);
 end
 
- signame = char(signname);
+ signname = char(signname);
  
-n = size(mfile, signame, 1);
+n = size(mfile, signname, 1);
 t = (0:n-1)' / Fs;
 I = find((t >= 10.0) & (t <= 11.0)); % 1.0 sec of data 
 TT = timetable(mfile.(signname)(I,1), 'VariableNames' , "Data" , 'RowTimes' , seconds(t(I)));

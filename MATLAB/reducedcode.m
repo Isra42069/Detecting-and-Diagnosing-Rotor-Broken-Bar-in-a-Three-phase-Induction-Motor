@@ -3,9 +3,9 @@ if ~exist(filename,'file')
   url = "https://ssd.mathworks.com/supportfiles/predmaint/broken-rotor-bar-fault-data/" + filename;
   websave(filename,url);
 end
->> unzip(filename)
->> numExperiments = 2;
->> % Names of the original data files restored from the zip archive.
+unzip(filename)
+numExperiments = 2;
+% Names of the original data files restored from the zip archive.
 files = [ ...
   "struct_rs_R1.mat", ...
   "struct_r1b_R1.mat", ...
@@ -144,7 +144,7 @@ T = read(ens);  % 1-row table per member
 vib = T.Vib_acpi{1};
 pspectrum(vib.Data, Fs_vib);
 annotation( "textarrow" , [0.45 0.38], [0.65 0.54], "String" , "Fault frequency region of interest" )
->> % Envelop of vibration signal
+% Envelop of vibration signal
 y = bandpass(vib.Data, [900 1300], Fs_vib);
 envelope(y)
 axis([0 800 -0.5 0.5])

@@ -23,7 +23,7 @@
 - Findings Documentation
 - Further Literature Review
 
-## 6. Meeting 6 
+## 6. Meeting 6 January 2026
 - Testing and Validation
 - Findings Documentation
 - Workload being shared
